@@ -8,15 +8,14 @@ import android.widget.EditText;
 
 public class MainActivity extends Activity {
 
-    EditText product = (EditText) findViewById(R.id.productEditText);
-    EditText wrapping = (EditText) findViewById(R.id.wrappingEditText);
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
     public void onClick(View view) {
+        EditText product = (EditText) findViewById(R.id.productEditText);
+        EditText wrapping = (EditText) findViewById(R.id.wrappingEditText);
 
         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
 

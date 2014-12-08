@@ -17,7 +17,7 @@ public class ResultActivity extends Activity {
 
         TextView text = (TextView)findViewById(R.id.prodTextView);
         txt = getIntent().getStringExtra("product").concat(" (").concat(getIntent().getStringExtra("wrapping")).concat(")");
-        text.setText("txt");
+        text.setText(txt);
     }
 }
 
