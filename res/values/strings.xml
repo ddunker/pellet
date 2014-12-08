@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">pellet</string>
+    <string name="product">Продукт</string>
+    <string name="wrapping">Упаковка</string>
+    <string name="from">Погрузка</string>
+    <string name="to">Выгрузка</string>
+    <string name="distance">Расстояние</string>
+    <string name="one_km_cost">Стоимость 1км</string>
+    <string name="weight">Вес, т</string>
+    <string name="buy">Закупка</string>
+    <string name="margin">Наценка, %</string>
+    <string name="expenses">Расходы</string>
+    <string name="usd">Курс USD</string>
+    <string name="eur">Курс EUR</string>
+    <string name="calculate">Расчитать</string>
+</resources>
