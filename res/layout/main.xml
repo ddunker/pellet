@@ -29,10 +29,10 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/product"
-                        android:id="@+id/textView"
+                        android:id="@+id/prodTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:gravity="center"/>
+                        android:gravity="center_vertical"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -41,7 +41,7 @@
                         android:id="@+id/textView2"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:gravity="center"/>
+                        android:gravity="center_vertical"/>
                 </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -53,14 +53,14 @@
                 <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editText"
+                        android:id="@+id/productEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"/>
 
                 <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editText2"
+                        android:id="@+id/wrappingEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"/>
             </LinearLayout>
@@ -87,7 +87,7 @@
                         android:id="@+id/textView3"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:gravity="center"/>
+                        android:gravity="center_vertical"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -96,7 +96,7 @@
                         android:id="@+id/textView4"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:gravity="center"/>
+                        android:gravity="center_vertical"/>
 
             </LinearLayout>
 
@@ -109,14 +109,14 @@
                 <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editText3"
+                        android:id="@+id/fromEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"/>
 
                 <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/editText4"
+                        android:id="@+id/toEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"/>
             </LinearLayout>
@@ -124,161 +124,6 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <!--LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="vertical"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
-                  android:layout_weight="1"
-                  android:layout_marginTop="10dp">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                      android:orientation="horizontal"
-                      android:layout_width="fill_parent"
-                      android:layout_height="fill_parent"
-                      android:layout_weight="1">
-
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/distance"
-                    android:id="@+id/textView5"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"/>
-
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/one_km_cost"
-                    android:id="@+id/textView7"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"/>
-
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/weight"
-                    android:id="@+id/textView9"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"/>
-            </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                      android:orientation="horizontal"
-                      android:layout_width="fill_parent"
-                      android:layout_height="fill_parent"
-                      android:layout_weight="1">
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editText5"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"
-                    android:nextFocusDown="@+id/editText6"/>
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editText6"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"/>
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editText7"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"/>
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                      android:orientation="horizontal"
-                      android:layout_width="fill_parent"
-                      android:layout_height="fill_parent"
-                      android:layout_weight="1">
-
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/buy"
-                    android:id="@+id/textView6"
-                    android:layout_weight="1"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="5dp"/>
-
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/margin"
-                    android:id="@+id/textView8"
-                    android:layout_weight="1"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="5dp"/>
-
-            <TextView
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/expenses"
-                    android:id="@+id/textView10"
-                    android:layout_weight="1"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="5dp"/>
-        </LinearLayout>
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                      android:orientation="horizontal"
-                      android:layout_width="fill_parent"
-                      android:layout_height="fill_parent"
-                      android:layout_weight="1">
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editText8"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"/>
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editText9"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"/>
-
-            <EditText
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:ems="10"
-                    android:id="@+id/editText10"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"/>
-
-
-            </LinearLayout>
-
-
-
-        </LinearLayout-->
-
-
-
-
-
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="horizontal"
@@ -313,11 +158,11 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText5"
+                        android:id="@+id/distanceEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/editText7"
-                        android:gravity="right"
+                        android:nextFocusDown="@+id/oneKmEditText"
+                        android:gravity="center_horizontal"
                         android:textAlignment="gravity"/>
 
                 <TextView
@@ -335,10 +180,12 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText6"
+                        android:id="@+id/buyEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/editText8"/>
+                        android:nextFocusDown="@+id/mergEditText"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="gravity"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -359,10 +206,12 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText7"
+                        android:id="@+id/oneKmEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/editText9"/>
+                        android:nextFocusDown="@+id/weightEditText"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="gravity"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -379,10 +228,12 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText8"
+                        android:id="@+id/mergEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/editText10"/>
+                        android:nextFocusDown="@+id/expEditText"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="gravity"/>
                 </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -403,10 +254,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText9"
+                        android:id="@+id/weightEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/editText6"/>
+                        android:text="@string/default_weight"
+                        android:nextFocusDown="@+id/buyEditText"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="gravity"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -423,10 +277,12 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText10"
+                        android:id="@+id/expEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/editText11"/>
+                        android:nextFocusDown="@+id/usdEditText"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="gravity"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -464,10 +320,12 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText11"
+                        android:id="@+id/usdEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/editText12"/>
+                        android:nextFocusDown="@+id/eurEditText"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="gravity"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -489,9 +347,11 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/editText12"
+                        android:id="@+id/eurEditText"
                         android:layout_weight="1"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="5dp"
+                        android:gravity="center_horizontal"
+                        android:textAlignment="gravity"/>
             </LinearLayout>
 
             </LinearLayout>

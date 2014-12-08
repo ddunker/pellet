@@ -14,4 +14,5 @@
     <string name="usd">Курс USD</string>
     <string name="eur">Курс EUR</string>
     <string name="calculate">Расчитать</string>
+    <string name="default_weight">22</string>
 </resources>
