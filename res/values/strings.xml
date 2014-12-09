@@ -5,8 +5,8 @@
     <string name="wrapping">Упаковка</string>
     <string name="from">Погрузка</string>
     <string name="to">Выгрузка</string>
-    <string name="distance">Расстояние, км</string>
-    <string name="one_km_cost">Стоимость 1км</string>
+    <string name="distance">Расстояние</string>
+    <string name="one_km_cost">Стоим. 1км</string>
     <string name="weight">Вес, т</string>
     <string name="buy">Закупка</string>
     <string name="margin">Наценка, %</string>
