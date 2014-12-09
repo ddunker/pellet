@@ -3,21 +3,21 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="3.4">
+        android:weightSum="5.2">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="vertical"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
-                  android:layout_weight="1"
+                  android:layout_weight="1.1"
+
                   android:layout_marginTop="10dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:orientation="horizontal"
                       android:layout_width="fill_parent"
                       android:layout_height="fill_parent"
-                      android:layout_weight="1"
-                      android:layout_marginBottom="10dp">
+                      android:layout_weight="1">
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           android:orientation="vertical"
@@ -67,19 +67,18 @@
 
         </LinearLayout>
 
-        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-                      <!--android:orientation="horizontal"-->
-                      <!--android:layout_width="fill_parent"-->
-                      <!--android:layout_height="fill_parent"-->
-                      <!--android:layout_weight="1">-->
-            <!--</LinearLayout>-->
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="horizontal"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:layout_weight="1.65">
+            </LinearLayout>
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:orientation="horizontal"
                       android:layout_width="fill_parent"
                       android:layout_height="fill_parent"
-                      android:layout_weight="1"
-                      android:layout_marginTop="10dp">
+                      android:layout_weight="1">
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           android:orientation="vertical"
@@ -136,15 +135,20 @@
                   android:orientation="horizontal"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
-                  android:layout_weight="1"
-                  android:layout_marginTop="10dp">
+                  android:layout_weight="1.7">
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                  android:orientation="vertical"
+                  android:layout_width="fill_parent"
+                  android:layout_height="fill_parent"
+                  android:layout_weight="1">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:orientation="horizontal"
                       android:layout_width="fill_parent"
                       android:layout_height="fill_parent"
-                      android:weightSum="3"
-                      android:layout_weight="1">
+                      android:layout_weight="0.27">
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           android:orientation="vertical"
@@ -158,7 +162,9 @@
                         android:text="@string/distance"
                         android:id="@+id/zpTextView"
                         android:layout_weight="1"
-                        android:layout_margin="5dp"/>
+                        android:layout_margin="5dp"
+                        android:gravity="fill_vertical"
+                        android:textAlignment="gravity"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -172,6 +178,88 @@
                         android:gravity="center"
                         android:textAlignment="gravity"
                         android:text="12"/>
+            </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                          android:orientation="vertical"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_weight="1">
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/one_km_cost"
+                        android:id="@+id/textView7"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:gravity="fill_vertical"
+                        android:textAlignment="gravity"/>
+
+                <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/oneKmEditText"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:nextFocusDown="@+id/weightEditText"
+                        android:gravity="center"
+                        android:textAlignment="gravity"
+                        android:text="3"/>
+
+                 </LinearLayout>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                          android:orientation="vertical"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_weight="1">
+                <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/weight"
+                        android:id="@+id/textView9"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:gravity="fill_vertical"
+                        android:textAlignment="gravity"/>
+
+                <EditText
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:ems="10"
+                        android:id="@+id/weightEditText"
+                        android:layout_weight="1"
+                        android:layout_margin="5dp"
+                        android:text="@string/default_weight"
+                        android:nextFocusDown="@+id/buyEditText"
+                        android:gravity="center"
+                        android:textAlignment="gravity"/>
+                </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="horizontal"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:layout_weight="0.46">
+            </LinearLayout>
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="horizontal"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:weightSum="3"
+                      android:layout_weight="0.27">
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                          android:orientation="vertical"
+                          android:layout_width="fill_parent"
+                          android:layout_height="fill_parent"
+                          android:layout_weight="1">
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -179,9 +267,9 @@
                         android:text="@string/buy"
                         android:id="@+id/textView6"
                         android:layout_weight="1"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_margin="5dp"
+                        android:gravity="fill_vertical"
+                        android:textAlignment="gravity"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -202,26 +290,6 @@
                           android:layout_width="fill_parent"
                           android:layout_height="fill_parent"
                           android:layout_weight="1">
-                <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/one_km_cost"
-                        android:id="@+id/textView7"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"/>
-
-                <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:ems="10"
-                        android:id="@+id/oneKmEditText"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/weightEditText"
-                        android:gravity="center"
-                        android:textAlignment="gravity"
-                        android:text="3"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -229,9 +297,9 @@
                         android:text="@string/margin"
                         android:id="@+id/textView8"
                         android:layout_weight="1"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_margin="5dp"
+                        android:gravity="fill_vertical"
+                        android:textAlignment="gravity"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -245,33 +313,13 @@
                         android:gravity="center"
                         android:textAlignment="gravity"
                         android:text="5"/>
-                </LinearLayout>
+            </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                           android:orientation="vertical"
                           android:layout_width="fill_parent"
                           android:layout_height="fill_parent"
                           android:layout_weight="1">
-                <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/weight"
-                        android:id="@+id/textView9"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"/>
-
-                <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:ems="10"
-                        android:id="@+id/weightEditText"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:text="@string/default_weight"
-                        android:nextFocusDown="@+id/buyEditText"
-                        android:gravity="center"
-                        android:textAlignment="gravity"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -279,9 +327,9 @@
                         android:text="@string/expenses"
                         android:id="@+id/textView10"
                         android:layout_weight="1"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginBottom="5dp"/>
+                        android:layout_margin="5dp"
+                        android:gravity="fill_vertical"
+                        android:textAlignment="gravity"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -295,18 +343,28 @@
                         android:gravity="center"
                         android:textAlignment="gravity"
                         android:text="20"/>
-                </LinearLayout>
-
             </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
+
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="horizontal"
+                  android:orientation="vertical"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
-                  android:layout_weight="1.4"
-                  android:layout_marginTop="20dp">
+                  android:layout_weight="1.4">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                      android:orientation="horizontal"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent"
+                      android:layout_weight="1.2">
+            </LinearLayout>
+
+
 
         <Button
                 android:layout_width="match_parent"
@@ -314,7 +372,8 @@
                 android:text="@string/calculate"
                 android:id="@+id/button"
                 android:onClick="onClick"
-                android:layout_margin="5dp"/>
+                android:layout_margin="5dp"
+                android:layout_weight="0.2"/>
     </LinearLayout>
 
 </LinearLayout>
