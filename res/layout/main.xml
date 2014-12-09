@@ -3,13 +3,13 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="4.3">
+        android:weightSum="3.4">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="vertical"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
-                  android:layout_weight="0.9"
+                  android:layout_weight="1"
                   android:layout_marginTop="10dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -38,7 +38,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/wrapping"
-                        android:id="@+id/textView2"
+                        android:id="@+id/wMarginTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="center_vertical"/>
@@ -67,6 +67,13 @@
 
         </LinearLayout>
 
+        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+                      <!--android:orientation="horizontal"-->
+                      <!--android:layout_width="fill_parent"-->
+                      <!--android:layout_height="fill_parent"-->
+                      <!--android:layout_weight="1">-->
+            <!--</LinearLayout>-->
+
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                       android:orientation="horizontal"
                       android:layout_width="fill_parent"
@@ -84,7 +91,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/from"
-                        android:id="@+id/textView3"
+                        android:id="@+id/tmpMarginTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="center_vertical"/>
@@ -93,7 +100,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/to"
-                        android:id="@+id/textView4"
+                        android:id="@+id/benefitTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="center_vertical"/>
@@ -149,7 +156,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/distance"
-                        android:id="@+id/textView5"
+                        android:id="@+id/zpTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"/>
 
@@ -162,8 +169,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:nextFocusDown="@+id/oneKmEditText"
-                        android:gravity="center_horizontal"
-                        android:textAlignment="gravity"/>
+                        android:gravity="center"
+                        android:textAlignment="gravity"
+                        android:text="12"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -183,9 +191,10 @@
                         android:id="@+id/buyEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/mergEditText"
-                        android:gravity="center_horizontal"
-                        android:textAlignment="gravity"/>
+                        android:nextFocusDown="@+id/marginEditText"
+                        android:gravity="center"
+                        android:textAlignment="gravity"
+                        android:text="10"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -210,8 +219,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:nextFocusDown="@+id/weightEditText"
-                        android:gravity="center_horizontal"
-                        android:textAlignment="gravity"/>
+                        android:gravity="center"
+                        android:textAlignment="gravity"
+                        android:text="3"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -228,12 +238,13 @@
                         android:layout_height="wrap_content"
                         android:inputType="numberDecimal"
                         android:ems="10"
-                        android:id="@+id/mergEditText"
+                        android:id="@+id/marginEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:nextFocusDown="@+id/expEditText"
-                        android:gravity="center_horizontal"
-                        android:textAlignment="gravity"/>
+                        android:gravity="center"
+                        android:textAlignment="gravity"
+                        android:text="5"/>
                 </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -259,7 +270,7 @@
                         android:layout_margin="5dp"
                         android:text="@string/default_weight"
                         android:nextFocusDown="@+id/buyEditText"
-                        android:gravity="center_horizontal"
+                        android:gravity="center"
                         android:textAlignment="gravity"/>
 
                 <TextView
@@ -281,8 +292,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:nextFocusDown="@+id/usdEditText"
-                        android:gravity="center_horizontal"
-                        android:textAlignment="gravity"/>
+                        android:gravity="center"
+                        android:textAlignment="gravity"
+                        android:text="20"/>
                 </LinearLayout>
 
             </LinearLayout>
@@ -293,75 +305,7 @@
                   android:orientation="horizontal"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
-                  android:layout_weight="1.2"
-                  android:layout_marginTop="20dp">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                      android:orientation="horizontal"
-                      android:layout_width="fill_parent"
-                      android:layout_height="fill_parent">
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                          android:orientation="vertical"
-                          android:layout_width="fill_parent"
-                          android:layout_height="fill_parent"
-                          android:layout_weight="1">
-
-                <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/usd"
-                        android:id="@+id/textView11"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"/>
-
-                <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:ems="10"
-                        android:id="@+id/usdEditText"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:nextFocusDown="@+id/eurEditText"
-                        android:gravity="center_horizontal"
-                        android:textAlignment="gravity"/>
-            </LinearLayout>
-
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                          android:orientation="vertical"
-                          android:layout_width="fill_parent"
-                          android:layout_height="fill_parent"
-                          android:layout_weight="1">
-
-                <TextView
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/eur"
-                        android:id="@+id/textView12"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"/>
-
-                <EditText
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
-                        android:ems="10"
-                        android:id="@+id/eurEditText"
-                        android:layout_weight="1"
-                        android:layout_margin="5dp"
-                        android:gravity="center_horizontal"
-                        android:textAlignment="gravity"/>
-            </LinearLayout>
-
-            </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                  android:orientation="horizontal"
-                  android:layout_width="fill_parent"
-                  android:layout_height="fill_parent"
-                  android:layout_weight="1.2"
+                  android:layout_weight="1.4"
                   android:layout_marginTop="20dp">
 
         <Button
