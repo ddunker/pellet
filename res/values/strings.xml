@@ -8,11 +8,12 @@
     <string name="distance">Расстояние</string>
     <string name="one_km_cost">Стоим. 1км</string>
     <string name="weight">Вес, т</string>
-    <string name="buy">Закупка</string>
+    <string name="buy">Закупка 1т</string>
     <string name="margin">Наценка, %</string>
     <string name="expenses">Расходы</string>
     <string name="usd">Курс USD</string>
     <string name="eur">Курс EUR</string>
     <string name="calculate">Расчитать</string>
     <string name="default_weight">22</string>
+    <string name="save">Сохранить</string>
 </resources>

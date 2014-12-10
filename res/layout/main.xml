@@ -90,7 +90,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/from"
-                        android:id="@+id/tmpMarginTextView"
+                        android:id="@+id/tmpMarginValueTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="center_vertical" android:textSize="16sp"/>
