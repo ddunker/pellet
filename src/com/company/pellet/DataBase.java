@@ -1,4 +1,4 @@
-package com.example.pellet;
+package com.company.pellet;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
