@@ -5,23 +5,10 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Text"
-            android:id="@+id/textView"/>
-    <EditText
+    <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:ems="10"
-            android:id="@+id/editText"/>
-    <SearchView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/searchView"/>
-    <ExpandableListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/expandableListView"/>
+            android:id="@+id/listView"
+            android:layout_gravity="right"
+            android:layout_margin="10dp"/>
 </LinearLayout>

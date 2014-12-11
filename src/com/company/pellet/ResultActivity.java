@@ -1,21 +1,16 @@
 package com.company.pellet;
 
 import android.app.Activity;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 
-/**
- * Created by binkovskiy on 05.12.14.
- */
+import java.math.BigDecimal;
+
+
 public class ResultActivity extends Activity {
     private SeekBar marginChange;
     private TextView zpValueView;
@@ -30,10 +25,6 @@ public class ResultActivity extends Activity {
     float ttlBenefit;
     float tonaBenefit;
     float zp;
-
-    SQLiteDatabase sqdb;
-    DataBase sqh;
-
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -77,23 +68,13 @@ public class ResultActivity extends Activity {
 
         marginChange.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             public void onStopTrackingTouch(SeekBar bar) {
-
             }
-
             public void onStartTrackingTouch(SeekBar bar) {
-
             }
-
             public void onProgressChanged(SeekBar bar, int paramInt, boolean paramBoolean) {
                 count();
             }
         });
-
-        // Инициализируем наш класс-обёртку
-        sqh = new DataBase(this);
-
-        // База нам нужна для записи и чтения
-        sqdb = sqh.getWritableDatabase();
     }
 
     // menu
@@ -106,48 +87,26 @@ public class ResultActivity extends Activity {
     // обработка нажатий
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // TODO Auto-generated method stub
         // Операции для выбранного пункта меню
         switch (item.getItemId()) {
             case R.id.saveItem:
+                DataBase db = new DataBase(getApplicationContext());
 
+                String product = getIntent().getStringExtra("product");
+                String wrapping = getIntent().getStringExtra("wrapping");
+                String from = getIntent().getStringExtra("from");
+                String to = getIntent().getStringExtra("to");
+                String distance = String.valueOf(getIntent().getFloatExtra("distance", 0));
+                String oneKmCost= String.valueOf(getIntent().getFloatExtra("oneKmCost", 0));
+                String weight = String.valueOf(getIntent().getFloatExtra("weight", 0));
+                String buyPrice = String.valueOf(getIntent().getFloatExtra("buy", 0));
+                String margin = String.valueOf(marginChange.getProgress());
+                String expanses = String.valueOf(getIntent().getFloatExtra("exp", 0));
 
-            String insertQuery = "INSERT INTO " +
-                    DataBase.TABLE_NAME +
-                    " (" + DataBase.DATE + ", "
-                    + DataBase.PRODUCT_NAME + ", "
-                    + DataBase.WRAPPING + ", "
-                    + DataBase.FR + ", "
-                    + DataBase.DESTINATION + ", "
-                    + DataBase.DISTANCE + ", "
-                    + DataBase.ONE_KM_COST + ", "
-                    + DataBase.WEIGHT + ", "
-                    + DataBase.BUY_PRICE + ", "
-                    + DataBase.MARGIN + ", "
-                    + DataBase.EXPENSES
-                    + ") VALUES ('"
-                    + getDateTime() + "', '"
-                    + getIntent().getStringExtra("product") + "', '"
-                    + getIntent().getStringExtra("wrapping") + "', '"
-                    + getIntent().getStringExtra("from") + "', '"
-                    + getIntent().getStringExtra("to") + "', '"
-                    + String.valueOf(getIntent().getFloatExtra("distance", 0)) + "', '"
-                    + String.valueOf(getIntent().getFloatExtra("oneKmCost", 0)) + "', '"
-                    + String.valueOf(getIntent().getFloatExtra("weight", 0)) + "', '"
-                    + String.valueOf(getIntent().getFloatExtra("buy", 0)) + "', '"
-                    + String.valueOf(marginChange.getProgress()) + "', '"
-                    + String.valueOf(getIntent().getFloatExtra("exp", 0))
-                    + "');";
-                sqdb.execSQL(insertQuery);
+                db.insertRow(product, wrapping, from, to, distance, oneKmCost, weight, buyPrice, margin, expanses);
 
-                Toast toast = Toast.makeText(getApplicationContext(),
-                       "Saved", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT);
                 toast.show();
-
-            // закрываем соединения с базой данных
-    //        sqdb.close();
-    //        sqh.close();
-
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -165,13 +124,6 @@ public class ResultActivity extends Activity {
         ttlMrgView.setText(String.valueOf(BigDecimal.valueOf(ttlBenefit).setScale(2, BigDecimal.ROUND_HALF_DOWN).floatValue()));
         tonaMrgView.setText(String.valueOf(BigDecimal.valueOf(tonaBenefit).setScale(2, BigDecimal.ROUND_HALF_DOWN).floatValue()));
         zpValueView.setText(String.valueOf(BigDecimal.valueOf(zp).setScale(2, BigDecimal.ROUND_HALF_DOWN).floatValue()));
-    }
-
-    private String getDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        Date date = new Date();
-        return dateFormat.format(date);
     }
 }
 
