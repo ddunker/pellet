@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
-import android.widget.SimpleCursorAdapter;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -103,51 +102,8 @@ public class DataBase extends SQLiteOpenHelper{
         db.close();
     }
 
-//    public List<String> getList() {
-//        List<String> labels = new ArrayList<String>();
-//
-//        String selectQuery = "SELECT "
-//                + UID + ", "
-//                + DATE + ", "
-//                + PRODUCT_NAME + ", "
-//                + WRAPPING + ", "
-//                + FR + ", "
-//                + DESTINATION + ", "
-//                + DISTANCE + ", "
-//                + ONE_KM_COST + ", "
-//                + WEIGHT + ", "
-//                + BUY_PRICE + ", "
-//                + MARGIN + ", "
-//                + EXPENSES
-//                + " FROM " + TABLE_NAME + ";";
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(selectQuery, null);
-//
-//        while (cursor.moveToNext()) {
-//            int id = cursor.getInt(cursor.getColumnIndex(DataBase.UID));
-//            String name = cursor.getString(cursor.getColumnIndex(DataBase.PRODUCT_NAME));
-//            Log.i("LOG_TAG", "ROW " + id + " HAS NAME " + name);
-//        }
-//
-////        // looping through all rows and adding to list
-////        if (cursor.moveToFirst()) {
-////            do {
-////                labels.add(cursor.getString(1));
-////            } while (cursor.moveToNext());
-////        }
-//
-//        // closing connection
-//        cursor.close();
-//        db.close();
-//
-//        // returning lables
-//        return labels;
-//    }
-
     public List<String> getList() {
-        List<String> labels = new ArrayList<String>();
-
+        List<String> labels = new ArrayList<>();
         String selectQuery = "SELECT "
                 + UID + ", "
                 + DATE + ", "
@@ -160,41 +116,22 @@ public class DataBase extends SQLiteOpenHelper{
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-
-//        while (cursor.moveToNext()) {
-//            int id = cursor.getInt(cursor.getColumnIndex(DataBase.UID));
-//            String name = cursor.getString(cursor.getColumnIndex(DataBase.PRODUCT_NAME));
-//            Log.i("LOG_TAG", "ROW " + id + " HAS NAME " + name);
-//        }
-
-        // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                labels.add(cursor.getString(1) + "\n" + cursor.getString(2) + "\n" + cursor.getString(3) +
-                        " - " + cursor.getString(4));
+                labels.add(cursor.getString(1) + "\n" + cursor.getString(2) + "\n" + cursor.getString(4) +
+                        " - " + cursor.getString(5));
             } while (cursor.moveToNext());
         }
-
         cursor.close();
         db.close();
-
-        String[] from = new String[] {DATE, PRODUCT_NAME };
-        int[] to = new int[] { R.id.dateView, R.id.prodView };
-
-        SimpleCursorAdapter mCursorAd = new SimpleCursorAdapter(SearchActivity, R.layout.item, getAllItems(), from, to, 0);
 
         return labels;
     }
 
-    public Cursor getAllItems() {
-        SQLiteDatabase mDb = this.getReadableDatabase();
-        return mDb.query(TABLE_NAME, null, null, null, null, null, null);
-    }
     private String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
                 "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
     }
-
 }
