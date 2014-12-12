@@ -7,18 +7,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class ListAdapter extends ArrayAdapter {
-    private List data;
+    private Map<String, ArrayList<String >> data;
     private Context context;
     public String name;
 
-    public ListAdapter(Context context, List data) {
+    public ListAdapter(Context context, Map<String, ArrayList<String>> data) {
         super(context, R.layout.item);
-        this.data = data;
+        this.data = (Map<String, ArrayList<String>>) data;
         this.context = context;
-        this.name = name;
     }
 
     @Override
@@ -28,9 +28,9 @@ public class ListAdapter extends ArrayAdapter {
     }
 
     @Override
-    public String getItem(int position) {
+    public ArrayList<String> getItem(int position) {
         // получение одного элемента по индексу
-        return data.get(position).getClass().getName();
+        return data.get(String.valueOf(position));
     }
 
     @Override
@@ -43,17 +43,15 @@ public class ListAdapter extends ArrayAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(int position, View convertView, ViewGroup parent) {
         // Объект для каждой из записей
 //        String item = (String) data.get(position);
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        // создаём View и указываем наполнить её из R.layout.item, т.е. из нашего item.xml
         View view = inflater.inflate(R.layout.item, parent, false);
 
         // Находим наш TextView и пишем в него название из объекта
-        ((TextView) view.findViewById(R.id.list_name)).setText((CharSequence) data.get(position));
+        ((TextView) view.findViewById(R.id.item1)).setText((CharSequence) data.get(String.valueOf(position)));
 
         return view;
     }

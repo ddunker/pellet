@@ -9,6 +9,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class SearchActivity extends Activity {
 
@@ -23,17 +25,17 @@ public class SearchActivity extends Activity {
 
     private void loadData() {
         DataBase db = new DataBase(getApplicationContext());
-        ArrayList<String> itemsList = (ArrayList<String>) db.getList();
-        ListView listItems = (ListView) findViewById(R.id.listItems);
+        Map<String, ArrayList<String>> itemsList = (HashMap<String, ArrayList<String>>) db.getList();
+        ListView list = (ListView) findViewById(R.id.listItems);
         ListAdapter listAdapter = new ListAdapter(getApplicationContext(), itemsList);
-        listItems.setAdapter(listAdapter);
-        listItems.setOnItemClickListener(selectItem);
+        list.setAdapter(listAdapter);
+        list.setOnItemClickListener(selectItem);
     }
 
     private AdapterView.OnItemClickListener selectItem = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View v, int i, long l) {
-            Log.v("###########", "t" + i + " " + l+ " " + ((TextView) v.findViewById(R.id.list_name)).getText());
+            Log.v("###########", "t" + i + " " + l+ " " + ((TextView) v.findViewById(R.id.item1)).getText());
         }
     };
 

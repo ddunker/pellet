@@ -7,10 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
+import java.util.*;
 
 public class DataBase extends SQLiteOpenHelper{
 
@@ -102,8 +99,35 @@ public class DataBase extends SQLiteOpenHelper{
         db.close();
     }
 
-    public List<String> getList() {
-        List<String> labels = new ArrayList<>();
+//    public List<String> getList() {
+//        List<String> labels = new ArrayList<>();
+//        String selectQuery = "SELECT "
+//                + UID + ", "
+//                + DATE + ", "
+//                + PRODUCT_NAME + ", "
+//                + WRAPPING + ", "
+//                + FR + ", "
+//                + DESTINATION
+//                + " FROM " + TABLE_NAME
+//                + " ORDER BY " + DATE + " DESC;";
+//
+//        SQLiteDatabase db = this.getReadableDatabase();
+//        Cursor cursor = db.rawQuery(selectQuery, null);
+//        if (cursor.moveToFirst()) {
+//            do {
+//                labels.add(cursor.getString(1) + "\n" + cursor.getString(2) + "\n" + cursor.getString(4) +
+//                        " - " + cursor.getString(5));
+//            } while (cursor.moveToNext());
+//        }
+//        cursor.close();
+//        db.close();
+//
+//        return labels;
+//    }
+
+    public Map<String, ArrayList<String>> getList() {
+        Map<String, ArrayList<String>> hashMap = new HashMap<String, ArrayList<String>>();
+
         String selectQuery = "SELECT "
                 + UID + ", "
                 + DATE + ", "
@@ -118,14 +142,24 @@ public class DataBase extends SQLiteOpenHelper{
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
-                labels.add(cursor.getString(1) + "\n" + cursor.getString(2) + "\n" + cursor.getString(4) +
-                        " - " + cursor.getString(5));
+                String id = cursor.getString(0);
+                ArrayList<String> values = hashMap.get(id);
+                if (values == null) {
+                    values = new ArrayList<>(10);
+                    hashMap.put(id, values);
+                }
+                values.add(cursor.getString(1));
+                values.add(cursor.getString(2));
+                values.add(cursor.getString(4));
+                values.add(cursor.getString(5));
+
+//                labels.add(cursor.getString(1) + "\n" + cursor.getString(2) + "\n" + cursor.getString(4) +
+//                        " - " + cursor.getString(5));
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
-
-        return labels;
+        return hashMap;
     }
 
     private String getDateTime() {
