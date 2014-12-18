@@ -42,8 +42,22 @@ public class DataBase extends SQLiteOpenHelper{
             + MARGIN + " VARCHAR(255), "
             + EXPENSES + " VARCHAR(255));";
 
-    private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS "
-            + TABLE_NAME + ";";
+    private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_NAME + ";";
+
+    private static final String selectQuery = "SELECT "
+            + UID + ", "
+            + DATE + ", "
+            + PRODUCT_NAME + ", "
+            + WRAPPING + ", "
+            + FR + ", "
+            + DESTINATION + ", "
+            + DISTANCE + ", "
+            + ONE_KM_COST + ", "
+            + WEIGHT + ", "
+            + BUY_PRICE + ", "
+            + MARGIN + ", "
+            + EXPENSES
+            + " FROM " + TABLE_NAME;
 
     public DataBase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -99,73 +113,60 @@ public class DataBase extends SQLiteOpenHelper{
         db.close();
     }
 
-//    public List<String> getList() {
-//        List<String> labels = new ArrayList<>();
-//        String selectQuery = "SELECT "
-//                + UID + ", "
-//                + DATE + ", "
-//                + PRODUCT_NAME + ", "
-//                + WRAPPING + ", "
-//                + FR + ", "
-//                + DESTINATION
-//                + " FROM " + TABLE_NAME
-//                + " ORDER BY " + DATE + " DESC;";
-//
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(selectQuery, null);
-//        if (cursor.moveToFirst()) {
-//            do {
-//                labels.add(cursor.getString(1) + "\n" + cursor.getString(2) + "\n" + cursor.getString(4) +
-//                        " - " + cursor.getString(5));
-//            } while (cursor.moveToNext());
-//        }
-//        cursor.close();
-//        db.close();
-//
-//        return labels;
-//    }
-
-    public Map<String, ArrayList<String>> getList() {
-        Map<String, ArrayList<String>> hashMap = new HashMap<String, ArrayList<String>>();
-
-        String selectQuery = "SELECT "
-                + UID + ", "
-                + DATE + ", "
-                + PRODUCT_NAME + ", "
-                + WRAPPING + ", "
-                + FR + ", "
-                + DESTINATION
-                + " FROM " + TABLE_NAME
-                + " ORDER BY " + DATE + " DESC;";
+    public ArrayList<Products> getList() {
+        ArrayList<Products> products = new ArrayList<Products>();
+        String q = selectQuery + " ORDER BY " + UID + " DESC;";
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.rawQuery(q, null);
         if (cursor.moveToFirst()) {
             do {
+                String date = cursor.getString(1);
+                String product = cursor.getString(2);
+                String path = cursor.getString(4) + " - " + cursor.getString(5);
                 String id = cursor.getString(0);
-                ArrayList<String> values = hashMap.get(id);
-                if (values == null) {
-                    values = new ArrayList<>(10);
-                    hashMap.put(id, values);
-                }
-                values.add(cursor.getString(1));
-                values.add(cursor.getString(2));
-                values.add(cursor.getString(4));
-                values.add(cursor.getString(5));
-
-//                labels.add(cursor.getString(1) + "\n" + cursor.getString(2) + "\n" + cursor.getString(4) +
-//                        " - " + cursor.getString(5));
+                products.add(new Products(date, product, path, id));
             } while (cursor.moveToNext());
         }
         cursor.close();
         db.close();
-        return hashMap;
+        return products;
+    }
+
+    public ArrayList<SelectedProduct> selectProduct(String selectedId) {
+        ArrayList<SelectedProduct> selectedProduct = new ArrayList<SelectedProduct>();
+        String q = selectQuery + " WHERE " + UID + " = " + selectedId + ";";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(q, null);
+        if (cursor.moveToFirst()) {
+            do {
+                String id = cursor.getString(0);
+                String date = cursor.getString(1);
+                String productName = cursor.getString(2);
+                String wrapping = cursor.getString(3);
+                String fr = cursor.getString(4);
+                String destination = cursor.getString(5);
+                String distance = cursor.getString(6);
+                String oneKmCost = cursor.getString(7);
+                String weight = cursor.getString(8);
+                String buyPrice = cursor.getString(9);
+                String margin = cursor.getString(10);
+                String expenses = cursor.getString(11);
+
+                selectedProduct.add(new SelectedProduct(id, date, productName, wrapping, fr, destination, distance,
+                        oneKmCost, weight, buyPrice, margin, expenses));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return selectedProduct;
     }
 
     private String getDateTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.getDefault());
         Date date = new Date();
         return dateFormat.format(date);
     }
+
 }

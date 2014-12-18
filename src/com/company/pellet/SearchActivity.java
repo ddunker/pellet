@@ -1,6 +1,7 @@
 package com.company.pellet;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,10 +10,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SearchActivity extends Activity {
+
+    private ArrayList<Products> products;
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -21,23 +22,27 @@ public class SearchActivity extends Activity {
         setContentView(R.layout.search);
 
         loadData();
+        ListAdapter listAdapter = new ListAdapter(this, products);
+        ListView lvMain = (ListView) findViewById(R.id.listItems);
+        lvMain.setAdapter(listAdapter);
+
+        lvMain.setOnItemClickListener(selectItem);
     }
 
+    // данные для адаптера
     private void loadData() {
         DataBase db = new DataBase(getApplicationContext());
-        Map<String, ArrayList<String>> itemsList = (HashMap<String, ArrayList<String>>) db.getList();
-        ListView list = (ListView) findViewById(R.id.listItems);
-        ListAdapter listAdapter = new ListAdapter(getApplicationContext(), itemsList);
-        list.setAdapter(listAdapter);
-        list.setOnItemClickListener(selectItem);
+        products = db.getList();
     }
 
-    private AdapterView.OnItemClickListener selectItem = new AdapterView.OnItemClickListener() {
+    AdapterView.OnItemClickListener selectItem = new AdapterView.OnItemClickListener() {
         @Override
-        public void onItemClick(AdapterView<?> parent, View v, int i, long l) {
-            Log.v("###########", "t" + i + " " + l+ " " + ((TextView) v.findViewById(R.id.item1)).getText());
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Log.v("########", " position: " + position + " id: " + ((TextView) view.findViewById(R.id.tvId)).getText());
+            Intent intent = new Intent();
+            intent.putExtra("id", ((TextView) view.findViewById(R.id.tvId)).getText());
+            setResult(RESULT_OK, intent);
+            finish();
         }
     };
-
-
 }

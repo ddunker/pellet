@@ -371,7 +371,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/calculate"
                 android:id="@+id/button"
-                android:onClick="onClick"
+                android:onClick="onResulBtnClick"
                 android:layout_margin="5dp"
                 android:layout_weight="0.2" android:textSize="20sp"/>
     </LinearLayout>

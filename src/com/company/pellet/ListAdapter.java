@@ -4,55 +4,60 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Map;
 
-public class ListAdapter extends ArrayAdapter {
-    private Map<String, ArrayList<String >> data;
-    private Context context;
-    public String name;
+public class ListAdapter extends BaseAdapter {
+    Context ctx;
+    LayoutInflater lInflater;
+    ArrayList<Products> objects;
 
-    public ListAdapter(Context context, Map<String, ArrayList<String>> data) {
-        super(context, R.layout.item);
-        this.data = (Map<String, ArrayList<String>>) data;
-        this.context = context;
+    ListAdapter(Context context, ArrayList<Products> products) {
+        ctx = context;
+        objects = products;
+        lInflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
+    // кол-во элементов
     @Override
     public int getCount() {
-        // возвращаем количество элементов списка
-        return data.size();
+        return objects.size();
     }
 
+    // элемент по позиции
     @Override
-    public ArrayList<String> getItem(int position) {
-        // получение одного элемента по индексу
-        return data.get(String.valueOf(position));
+    public Object getItem(int position) {
+        return objects.get(position);
     }
 
+    // id по позиции
     @Override
     public long getItemId(int position) {
         return position;
     }
 
-    public String getName() {
-        return name;
-    }
-
+    // пункт списка
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        // Объект для каждой из записей
-//        String item = (String) data.get(position);
+        View view = convertView;
+        if (view == null) {
+            view = lInflater.inflate(R.layout.item, parent, false);
+        }
+        Products p = getProduct(position);
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = inflater.inflate(R.layout.item, parent, false);
-
-        // Находим наш TextView и пишем в него название из объекта
-        ((TextView) view.findViewById(R.id.item1)).setText((CharSequence) data.get(String.valueOf(position)));
+        ((TextView) view.findViewById(R.id.tvData)).setText(p.date);
+        ((TextView) view.findViewById(R.id.tvProduct)).setText(p.name);
+        ((TextView) view.findViewById(R.id.tvDestination)).setText(p.path);
+        ((TextView) view.findViewById(R.id.tvId)).setText(p.id);
 
         return view;
     }
+
+    // товар по позиции
+    Products getProduct(int position) {
+        return ((Products) getItem(position));
+    }
+
 }

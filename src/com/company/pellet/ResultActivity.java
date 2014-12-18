@@ -33,8 +33,8 @@ public class ResultActivity extends Activity {
         setContentView(R.layout.result);
 
         float delivery = getIntent().getFloatExtra("distance", 0) * getIntent().getFloatExtra("oneKmCost", 0);
-        woMarg = delivery + getIntent().getFloatExtra("weight", 0) * getIntent().getFloatExtra("buy", 0) +
-                getIntent().getFloatExtra("exp", 0);
+        woMarg = delivery + getIntent().getFloatExtra("weight", 0) * getIntent().getFloatExtra("buyPrice", 0) +
+                getIntent().getFloatExtra("expenses", 0);
 
 
         TextView productView = (TextView) findViewById(R.id.prodTextView);
@@ -54,7 +54,7 @@ public class ResultActivity extends Activity {
         tmpMarginValueView = (TextView) findViewById(R.id.tmpMarginValueTextView);
 
         productView.setText(getIntent().getStringExtra("product") + " (" + getIntent().getStringExtra("wrapping") + ")");
-        distanceView.setText(getIntent().getStringExtra("from") + " - " + getIntent().getStringExtra("to") + " (" +
+        distanceView.setText(getIntent().getStringExtra("fr") + " - " + getIntent().getStringExtra("destination") + " (" +
                 getIntent().getFloatExtra("distance", 0) + "km) - доставка: " + delivery);
         woMarginView.setText("ИТОГО, без наценки: ");
         woMarginValueView.setText(String.valueOf(woMarg));
@@ -94,14 +94,14 @@ public class ResultActivity extends Activity {
 
                 String product = getIntent().getStringExtra("product");
                 String wrapping = getIntent().getStringExtra("wrapping");
-                String from = getIntent().getStringExtra("from");
-                String to = getIntent().getStringExtra("to");
+                String from = getIntent().getStringExtra("fr");
+                String to = getIntent().getStringExtra("destination");
                 String distance = String.valueOf(getIntent().getFloatExtra("distance", 0));
                 String oneKmCost= String.valueOf(getIntent().getFloatExtra("oneKmCost", 0));
                 String weight = String.valueOf(getIntent().getFloatExtra("weight", 0));
-                String buyPrice = String.valueOf(getIntent().getFloatExtra("buy", 0));
+                String buyPrice = String.valueOf(getIntent().getFloatExtra("buyPrice", 0));
                 String margin = String.valueOf(marginChange.getProgress());
-                String expanses = String.valueOf(getIntent().getFloatExtra("exp", 0));
+                String expanses = String.valueOf(getIntent().getFloatExtra("expenses", 0));
 
                 db.insertRow(product, wrapping, from, to, distance, oneKmCost, weight, buyPrice, margin, expanses);
 
