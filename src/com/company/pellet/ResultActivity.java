@@ -43,7 +43,6 @@ public class ResultActivity extends Activity {
         TextView woMarginValueView = (TextView) findViewById(R.id.woMarginValueTextView);
         marginChange = (SeekBar) findViewById(R.id.seekBar);
         TextView ttlMarginView = (TextView) findViewById(R.id.wMarginTextView);
-//        TextView tmpMarginView = (TextView) findViewById(R.id.tmpMarginTextView);
         TextView benefitView = (TextView) findViewById(R.id.benefitTextView);
         TextView zpView = (TextView) findViewById(R.id.zpTextView);
         zpValueView = (TextView) findViewById(R.id.zpValueTextView);
@@ -61,7 +60,6 @@ public class ResultActivity extends Activity {
         ttlMarginView.setText("Продажная цена, общая / 1т: ");
         benefitView.setText("Прибыль, общая / 1т: ");
         zpView.setText("ЗП от прибыли: ");
-//        tmpMarginView.setText("Наценка: ");
 
         marginChange.setProgress((getIntent().getIntExtra("margin", 0)));
         count();
@@ -104,8 +102,12 @@ public class ResultActivity extends Activity {
                 String expanses = String.valueOf(getIntent().getFloatExtra("expenses", 0));
 
                 db.insertRow(product, wrapping, from, to, distance, oneKmCost, weight, buyPrice, margin, expanses);
-
-                Toast toast = Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_SHORT);
+                try {
+                    finish();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                Toast toast = Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG);
                 toast.show();
             default:
                 return super.onOptionsItemSelected(item);

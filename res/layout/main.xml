@@ -3,14 +3,15 @@
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:weightSum="5.2">
+        android:weightSum="5.2"
+        android:descendantFocusability="beforeDescendants"
+        android:focusableInTouchMode="true">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
                   android:orientation="vertical"
                   android:layout_width="fill_parent"
                   android:layout_height="fill_parent"
                   android:layout_weight="1.1"
-
                   android:layout_marginTop="10dp">
 
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -55,14 +56,24 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/productEditText"
                         android:layout_weight="1"
-                        android:layout_margin="5dp" android:textSize="16sp"/>
+                        android:layout_margin="5dp"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:textSize="16sp"/>
 
                 <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/wrappingEditText"
                         android:layout_weight="1"
-                        android:layout_margin="5dp" android:textSize="16sp"/>
+                        android:layout_margin="5dp"
+                        android:textSize="16sp"
+                        android:singleLine="true"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:selectAllOnFocus="true"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -117,14 +128,25 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/fromEditText"
                         android:layout_weight="1"
-                        android:layout_margin="5dp" android:textSize="16sp"/>
+                        android:layout_margin="5dp"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:textSize="16sp"/>
 
                 <EditText
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/toEditText"
                         android:layout_weight="1"
-                        android:layout_margin="5dp" android:textSize="16sp"/>
+                        android:layout_margin="5dp"
+                        android:selectAllOnFocus="true"
+                        android:singleLine="true"
+                        android:lines="1"
+                        android:maxLines="1"
+                        android:nextFocusDown="@+id/distanceEditText"
+                        android:textSize="16sp"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -177,7 +199,9 @@
                         android:nextFocusDown="@+id/oneKmEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="12" android:textSize="20sp"/>
+                        android:text="12"
+                        android:selectAllOnFocus="true"
+                        android:textSize="20sp"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -206,7 +230,9 @@
                         android:nextFocusDown="@+id/weightEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="3" android:textSize="20sp"/>
+                        android:text="3"
+                        android:selectAllOnFocus="true"
+                        android:textSize="20sp"/>
 
                  </LinearLayout>
 
@@ -236,7 +262,9 @@
                         android:text="@string/default_weight"
                         android:nextFocusDown="@+id/buyEditText"
                         android:gravity="center"
-                        android:textAlignment="gravity" android:textSize="20sp"/>
+                        android:textAlignment="gravity"
+                        android:selectAllOnFocus="true"
+                        android:textSize="20sp"/>
                 </LinearLayout>
 
         </LinearLayout>
@@ -282,7 +310,9 @@
                         android:nextFocusDown="@+id/marginEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="10" android:textSize="20sp"/>
+                        android:text="10"
+                        android:selectAllOnFocus="true"
+                        android:textSize="20sp"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -312,7 +342,9 @@
                         android:nextFocusDown="@+id/expEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="5" android:textSize="20sp"/>
+                        android:text="5"
+                        android:selectAllOnFocus="true"
+                        android:textSize="20sp"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -342,13 +374,14 @@
                         android:nextFocusDown="@+id/usdEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="20" android:textSize="20sp"/>
+                        android:text="20"
+                        android:selectAllOnFocus="true"
+                        android:textSize="20sp"/>
             </LinearLayout>
 
         </LinearLayout>
 
     </LinearLayout>
-
 
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -364,8 +397,6 @@
                       android:layout_weight="1.2">
             </LinearLayout>
 
-
-
         <Button
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -374,6 +405,7 @@
                 android:onClick="onResulBtnClick"
                 android:layout_margin="5dp"
                 android:layout_weight="0.2" android:textSize="20sp"/>
+
     </LinearLayout>
 
 </LinearLayout>

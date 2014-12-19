@@ -56,7 +56,7 @@ public class ListAdapter extends BaseAdapter {
     }
 
     // товар по позиции
-    Products getProduct(int position) {
+    private Products getProduct(int position) {
         return ((Products) getItem(position));
     }
 

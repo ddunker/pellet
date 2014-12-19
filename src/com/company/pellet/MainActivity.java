@@ -38,7 +38,10 @@ public class MainActivity extends Activity {
         buyPrice = (EditText) findViewById(R.id.buyEditText);
         margin = (EditText) findViewById(R.id.marginEditText);
         expenses = (EditText) findViewById(R.id.expEditText);
+
+        fillDataOnStart();
     }
+
     public void onResulBtnClick(View view) {
         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
 
@@ -53,7 +56,16 @@ public class MainActivity extends Activity {
         intent.putExtra("margin", Integer.valueOf(margin.getText().toString()));
         intent.putExtra("expenses", Float.valueOf(expenses.getText().toString()));
 
-        startActivity(intent);
+        Checker check = new Checker();
+
+        check.checkFilling(product, wrapping, fr, destination, distance, oneKmCost, weight, buyPrice, margin, expenses);
+
+        if (!check.error) {
+            startActivity(intent);
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(), "Weight must be > 0", Toast.LENGTH_LONG);
+            toast.show();
+        }
     }
 
     // menu
@@ -79,18 +91,15 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
                 String id = data.getStringExtra("id");
-                Toast toast = Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT);
-                toast.show();
-                fillData(id);
+                fillDataOnSearch(id);
             }
         }
     }
 
-    private void fillData(String id) {
+    private void fillDataOnSearch(String id) {
         DataBase db = new DataBase(getApplicationContext());
         ArrayList<SelectedProduct> selectedProduct = db.selectProduct(id);
 
@@ -105,4 +114,21 @@ public class MainActivity extends Activity {
         margin.setText(selectedProduct.get(0).margin);
         expenses.setText(selectedProduct.get(0).expenses);
     }
+
+    private void fillDataOnStart() {
+        DataBase db = new DataBase(getApplicationContext());
+        ArrayList<SelectedProduct> selectedProduct = db.selectProduct(db.getLastId());
+
+        product.setText(selectedProduct.get(0).productName);
+        wrapping.setText(selectedProduct.get(0).wrapping);
+        fr.setText(selectedProduct.get(0).fr);
+        destination.setText(selectedProduct.get(0).destination);
+        distance.setText(selectedProduct.get(0).distance);
+        oneKmCost.setText(selectedProduct.get(0).oneKmCost);
+        weight.setText(selectedProduct.get(0).weight);
+        buyPrice.setText(selectedProduct.get(0).buyPrice);
+        margin.setText(selectedProduct.get(0).margin);
+        expenses.setText(selectedProduct.get(0).expenses);
+    }
+
 }

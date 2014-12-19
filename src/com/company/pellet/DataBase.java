@@ -163,6 +163,22 @@ public class DataBase extends SQLiteOpenHelper{
         return selectedProduct;
     }
 
+    public String getLastId() {
+        String lastId = null;
+        String q = "SELECT MAX(" + UID + ") FROM " + TABLE_NAME + ";";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(q, null);
+        if (cursor.moveToFirst()) {
+            do {
+                lastId = cursor.getString(0);
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+        return lastId;
+    }
+
     private String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss", Locale.getDefault());
         Date date = new Date();
