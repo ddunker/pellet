@@ -52,6 +52,10 @@ public class ListAdapter extends BaseAdapter {
         ((TextView) view.findViewById(R.id.tvDestination)).setText(p.path);
         ((TextView) view.findViewById(R.id.tvId)).setText(p.id);
 
+        if (position % 2 == 0) {
+            view.setBackgroundResource(R.color.background);
+        } else view.setBackgroundResource(R.color.add_background);
+
         return view;
     }
 

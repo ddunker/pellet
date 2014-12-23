@@ -26,6 +26,9 @@ public class SearchActivity extends Activity {
         ListView lvMain = (ListView) findViewById(R.id.listItems);
         lvMain.setAdapter(listAdapter);
 
+        Colorize colorize = new Colorize();
+        colorize.colorSearch(getWindow());
+
         lvMain.setOnItemClickListener(selectItem);
     }
 

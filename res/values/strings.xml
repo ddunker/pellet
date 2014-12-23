@@ -17,4 +17,5 @@
     <string name="default_weight">22</string>
     <string name="save">Сохранить</string>
     <string name="search">Поиск</string>
+    <string name ="preferences">Preferences</string>
 </resources>

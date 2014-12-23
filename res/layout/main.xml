@@ -33,7 +33,9 @@
                         android:id="@+id/prodTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:gravity="center_vertical" android:textSize="16sp"/>
+                        android:textColor="@color/text_color"
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -42,7 +44,9 @@
                         android:id="@+id/wMarginTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:gravity="center_vertical" android:textSize="16sp"/>
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
                 </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -61,6 +65,7 @@
                         android:singleLine="true"
                         android:lines="1"
                         android:maxLines="1"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:textSize="16sp"/>
 
                 <EditText
@@ -73,6 +78,7 @@
                         android:singleLine="true"
                         android:lines="1"
                         android:maxLines="1"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:selectAllOnFocus="true"/>
             </LinearLayout>
 
@@ -104,7 +110,9 @@
                         android:id="@+id/tmpMarginValueTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:gravity="center_vertical" android:textSize="16sp"/>
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
 
                 <TextView
                         android:layout_width="fill_parent"
@@ -113,7 +121,9 @@
                         android:id="@+id/benefitTextView"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:gravity="center_vertical" android:textSize="16sp"/>
+                        android:gravity="center_vertical"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
 
             </LinearLayout>
 
@@ -133,6 +143,7 @@
                         android:singleLine="true"
                         android:lines="1"
                         android:maxLines="1"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:textSize="16sp"/>
 
                 <EditText
@@ -145,6 +156,7 @@
                         android:singleLine="true"
                         android:lines="1"
                         android:maxLines="1"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:nextFocusDown="@+id/distanceEditText"
                         android:textSize="16sp"/>
             </LinearLayout>
@@ -186,7 +198,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="fill_vertical"
-                        android:textAlignment="gravity" android:textSize="16sp"/>
+                        android:textAlignment="gravity"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -199,8 +213,9 @@
                         android:nextFocusDown="@+id/oneKmEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="12"
+                        android:text=""
                         android:selectAllOnFocus="true"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:textSize="20sp"/>
             </LinearLayout>
 
@@ -217,7 +232,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="fill_vertical"
-                        android:textAlignment="gravity" android:textSize="16sp"/>
+                        android:textAlignment="gravity"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -230,8 +247,9 @@
                         android:nextFocusDown="@+id/weightEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="3"
+                        android:text=""
                         android:selectAllOnFocus="true"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:textSize="20sp"/>
 
                  </LinearLayout>
@@ -249,7 +267,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="fill_vertical"
-                        android:textAlignment="gravity" android:textSize="16sp"/>
+                        android:textAlignment="gravity"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -259,11 +279,12 @@
                         android:id="@+id/weightEditText"
                         android:layout_weight="1"
                         android:layout_margin="5dp"
-                        android:text="@string/default_weight"
+                        android:text=""
                         android:nextFocusDown="@+id/buyEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
                         android:selectAllOnFocus="true"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:textSize="20sp"/>
                 </LinearLayout>
 
@@ -297,7 +318,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="fill_vertical"
-                        android:textAlignment="gravity" android:textSize="16sp"/>
+                        android:textAlignment="gravity"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -310,8 +333,9 @@
                         android:nextFocusDown="@+id/marginEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="10"
+                        android:text=""
                         android:selectAllOnFocus="true"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:textSize="20sp"/>
             </LinearLayout>
 
@@ -329,7 +353,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="fill_vertical"
-                        android:textAlignment="gravity" android:textSize="16sp"/>
+                        android:textAlignment="gravity"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -342,8 +368,9 @@
                         android:nextFocusDown="@+id/expEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="5"
+                        android:text=""
                         android:selectAllOnFocus="true"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:textSize="20sp"/>
             </LinearLayout>
 
@@ -361,7 +388,9 @@
                         android:layout_weight="1"
                         android:layout_margin="5dp"
                         android:gravity="fill_vertical"
-                        android:textAlignment="gravity" android:textSize="16sp"/>
+                        android:textAlignment="gravity"
+                        android:textSize="16sp"
+                        android:textColor="@color/text_color"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -374,8 +403,9 @@
                         android:nextFocusDown="@+id/usdEditText"
                         android:gravity="center"
                         android:textAlignment="gravity"
-                        android:text="20"
+                        android:text=""
                         android:selectAllOnFocus="true"
+                        android:textCursorDrawable="@drawable/cursor"
                         android:textSize="20sp"/>
             </LinearLayout>
 

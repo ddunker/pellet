@@ -52,6 +52,10 @@ public class ResultActivity extends Activity {
         tonaMrgView = (TextView) findViewById(R.id.tonaMrgTextView);
         tmpMarginValueView = (TextView) findViewById(R.id.tmpMarginValueTextView);
 
+        Colorize colorize = new Colorize();
+        colorize.colorResult(zpValueView, ttlSaleView, tonaSaleView, ttlMrgView, tonaMrgView, tmpMarginValueView,
+                getResources(), getWindow());
+
         productView.setText(getIntent().getStringExtra("product") + " (" + getIntent().getStringExtra("wrapping") + ")");
         distanceView.setText(getIntent().getStringExtra("fr") + " - " + getIntent().getStringExtra("destination") + " (" +
                 getIntent().getFloatExtra("distance", 0) + "km) - доставка: " + delivery);

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class MainActivity extends Activity {
     private EditText buyPrice;
     private EditText margin;
     private EditText expenses;
+    private Button button;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -38,12 +40,20 @@ public class MainActivity extends Activity {
         buyPrice = (EditText) findViewById(R.id.buyEditText);
         margin = (EditText) findViewById(R.id.marginEditText);
         expenses = (EditText) findViewById(R.id.expEditText);
+        button = (Button) findViewById(R.id.button);
 
         fillDataOnStart();
+
+        Colorize colorize = new Colorize();
+        colorize.colorMain(product, wrapping, fr, destination, distance, oneKmCost, weight, buyPrice, margin, expenses,
+                getResources(), getWindow(), button);
     }
 
     public void onResulBtnClick(View view) {
         Intent intent = new Intent(MainActivity.this, ResultActivity.class);
+
+        Checker check = new Checker();
+        check.checkFilling(product, wrapping, fr, destination, distance, oneKmCost, weight, buyPrice, margin, expenses);
 
         intent.putExtra("product", product.getText().toString());
         intent.putExtra("wrapping", wrapping.getText().toString());
@@ -55,10 +65,6 @@ public class MainActivity extends Activity {
         intent.putExtra("buyPrice", Float.valueOf(buyPrice.getText().toString()));
         intent.putExtra("margin", Integer.valueOf(margin.getText().toString()));
         intent.putExtra("expenses", Float.valueOf(expenses.getText().toString()));
-
-        Checker check = new Checker();
-
-        check.checkFilling(product, wrapping, fr, destination, distance, oneKmCost, weight, buyPrice, margin, expenses);
 
         if (!check.error) {
             startActivity(intent);
@@ -119,16 +125,18 @@ public class MainActivity extends Activity {
         DataBase db = new DataBase(getApplicationContext());
         ArrayList<SelectedProduct> selectedProduct = db.selectProduct(db.getLastId());
 
-        product.setText(selectedProduct.get(0).productName);
-        wrapping.setText(selectedProduct.get(0).wrapping);
-        fr.setText(selectedProduct.get(0).fr);
-        destination.setText(selectedProduct.get(0).destination);
-        distance.setText(selectedProduct.get(0).distance);
-        oneKmCost.setText(selectedProduct.get(0).oneKmCost);
-        weight.setText(selectedProduct.get(0).weight);
-        buyPrice.setText(selectedProduct.get(0).buyPrice);
-        margin.setText(selectedProduct.get(0).margin);
-        expenses.setText(selectedProduct.get(0).expenses);
+        if (selectedProduct.size() > 0) {
+            product.setText(selectedProduct.get(0).productName);
+            wrapping.setText(selectedProduct.get(0).wrapping);
+            fr.setText(selectedProduct.get(0).fr);
+            destination.setText(selectedProduct.get(0).destination);
+            distance.setText(selectedProduct.get(0).distance);
+            oneKmCost.setText(selectedProduct.get(0).oneKmCost);
+            weight.setText(selectedProduct.get(0).weight);
+            buyPrice.setText(selectedProduct.get(0).buyPrice);
+            margin.setText(selectedProduct.get(0).margin);
+            expenses.setText(selectedProduct.get(0).expenses);
+        }
     }
 
 }
