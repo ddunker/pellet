@@ -9,7 +9,7 @@
     </item>
 
     <item
-            android:id="@+id/settingsItem"
+            android:id="@+id/preferencesItem"
             android:icon="@android:drawable/ic_menu_preferences"
             android:showAsAction="ifRoom"
             android:title="@string/preferences">

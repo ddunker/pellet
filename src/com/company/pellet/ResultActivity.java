@@ -1,6 +1,7 @@
 package com.company.pellet;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,6 +26,8 @@ public class ResultActivity extends Activity {
     float ttlBenefit;
     float tonaBenefit;
     float zp;
+    TextView productView;
+    TextView distanceView;
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -37,8 +40,8 @@ public class ResultActivity extends Activity {
                 getIntent().getFloatExtra("expenses", 0);
 
 
-        TextView productView = (TextView) findViewById(R.id.prodTextView);
-        TextView distanceView = (TextView) findViewById(R.id.distanceTextView);
+        productView = (TextView) findViewById(R.id.prodTextView);
+        distanceView = (TextView) findViewById(R.id.distanceTextView);
         TextView woMarginView = (TextView) findViewById(R.id.woMarginTextView);
         TextView woMarginValueView = (TextView) findViewById(R.id.woMarginValueTextView);
         marginChange = (SeekBar) findViewById(R.id.seekBar);
@@ -77,6 +80,8 @@ public class ResultActivity extends Activity {
                 count();
             }
         });
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     // menu
@@ -91,7 +96,7 @@ public class ResultActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Операции для выбранного пункта меню
         switch (item.getItemId()) {
-            case R.id.saveItem:
+            case R.id.saveItem: {
                 DataBase db = new DataBase(getApplicationContext());
 
                 String product = getIntent().getStringExtra("product");
@@ -99,7 +104,7 @@ public class ResultActivity extends Activity {
                 String from = getIntent().getStringExtra("fr");
                 String to = getIntent().getStringExtra("destination");
                 String distance = String.valueOf(getIntent().getFloatExtra("distance", 0));
-                String oneKmCost= String.valueOf(getIntent().getFloatExtra("oneKmCost", 0));
+                String oneKmCost = String.valueOf(getIntent().getFloatExtra("oneKmCost", 0));
                 String weight = String.valueOf(getIntent().getFloatExtra("weight", 0));
                 String buyPrice = String.valueOf(getIntent().getFloatExtra("buyPrice", 0));
                 String margin = String.valueOf(marginChange.getProgress());
@@ -113,9 +118,34 @@ public class ResultActivity extends Activity {
                 }
                 Toast toast = Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG);
                 toast.show();
+                return true;
+            }
+            case R.id.shareItem: {
+                shareIt();
+                return true;
+            }
+            case android.R.id.home: {
+                onBackPressed();
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void shareIt() {
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        sharingIntent.setType("text/plain");
+        String shareBody = setContent();
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
+        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+        startActivity(Intent.createChooser(sharingIntent, "Share via"));
+    }
+
+    private String setContent() {
+        String content;
+        content = (String) productView.getText() + "\n" + (String) distanceView.getText();
+        return content;
     }
 
     public void count () {

@@ -86,9 +86,16 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Операции для выбранного пункта меню
         switch (item.getItemId()) {
-            case R.id.searchItem:
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                startActivityForResult(intent, 0);
+            case R.id.searchItem: {
+                Intent intentSearch = new Intent(MainActivity.this, SearchActivity.class);
+                startActivityForResult(intentSearch, 0);
+                return true;
+            }
+            case R.id.preferencesItem: {
+                Intent intentPreferences = new Intent(MainActivity.this, PreferencesActivity.class);
+                startActivityForResult(intentPreferences, 1);
+                return true;
+            }
             default:
                 return super.onOptionsItemSelected(item);
         }

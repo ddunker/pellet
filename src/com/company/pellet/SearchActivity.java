@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -30,6 +31,22 @@ public class SearchActivity extends Activity {
         colorize.colorSearch(getWindow());
 
         lvMain.setOnItemClickListener(selectItem);
+
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    // обработка нажатий
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Операции для выбранного пункта меню
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                onBackPressed();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     // данные для адаптера
