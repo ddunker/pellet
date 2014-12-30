@@ -163,6 +163,13 @@ public class DataBase extends SQLiteOpenHelper{
         return selectedProduct;
     }
 
+    public void deleteItem(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String q = "DELETE FROM " + TABLE_NAME + " WHERE " + UID + " = " + id + ";";
+        db.execSQL(q);
+        db.close();
+    }
+
     public String getLastId() {
         String lastId = null;
         String q = "SELECT MAX(" + UID + ") FROM " + TABLE_NAME + ";";

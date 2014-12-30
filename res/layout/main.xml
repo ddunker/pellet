@@ -144,7 +144,8 @@
                         android:lines="1"
                         android:maxLines="1"
                         android:textCursorDrawable="@drawable/cursor"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:hint="@string/city_hint"/>
 
                 <EditText
                         android:layout_width="fill_parent"
@@ -158,7 +159,8 @@
                         android:maxLines="1"
                         android:textCursorDrawable="@drawable/cursor"
                         android:nextFocusDown="@+id/distanceEditText"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp"
+                        android:hint="@string/city_hint"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -216,7 +218,8 @@
                         android:text=""
                         android:selectAllOnFocus="true"
                         android:textCursorDrawable="@drawable/cursor"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        android:hint="@string/distance_hint"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -250,7 +253,8 @@
                         android:text=""
                         android:selectAllOnFocus="true"
                         android:textCursorDrawable="@drawable/cursor"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        android:hint="@string/one_km_cost_hint"/>
 
                  </LinearLayout>
 
@@ -285,7 +289,8 @@
                         android:textAlignment="gravity"
                         android:selectAllOnFocus="true"
                         android:textCursorDrawable="@drawable/cursor"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        android:hint="@string/weight_hint"/>
                 </LinearLayout>
 
         </LinearLayout>
@@ -336,7 +341,8 @@
                         android:text=""
                         android:selectAllOnFocus="true"
                         android:textCursorDrawable="@drawable/cursor"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        android:hint="@string/buy_hint"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -371,7 +377,8 @@
                         android:text=""
                         android:selectAllOnFocus="true"
                         android:textCursorDrawable="@drawable/cursor"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        android:hint="@string/margin_hint"/>
             </LinearLayout>
 
             <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -406,7 +413,8 @@
                         android:text=""
                         android:selectAllOnFocus="true"
                         android:textCursorDrawable="@drawable/cursor"
-                        android:textSize="20sp"/>
+                        android:textSize="20sp"
+                        android:hint="@string/expenses_hint"/>
             </LinearLayout>
 
         </LinearLayout>

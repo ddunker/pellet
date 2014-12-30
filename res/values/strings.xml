@@ -1,22 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">pellet</string>
-    <string name="product">Продукт</string>
-    <string name="wrapping">Упаковка</string>
-    <string name="from">Погрузка</string>
-    <string name="to">Выгрузка</string>
-    <string name="distance">Расстояние</string>
-    <string name="one_km_cost">Стоим. 1км</string>
-    <string name="weight">Вес, т</string>
-    <string name="buy">Закупка 1т</string>
-    <string name="margin">Наценка, %</string>
-    <string name="expenses">Расходы</string>
-    <string name="usd">Курс USD</string>
-    <string name="eur">Курс EUR</string>
-    <string name="calculate">Расчитать</string>
+    <string name="app_name">Calculator</string>
+    <string name="product">Product</string>
+    <string name="wrapping">Wrapping</string>
+    <string name="from">Loading</string>
+    <string name="to">Unloading</string>
+    <string name="distance">Distance</string>
+    <string name="one_km_cost">Cost per 1km</string>
+    <string name="weight">Weight</string>
+    <string name="buy">Purchase of 1t</string>
+    <string name="margin">Margin</string>
+    <string name="expenses">Expenses</string>
+    <string name="calculate">Calculate</string>
     <string name="default_weight">22</string>
-    <string name="save">Сохранить</string>
-    <string name="search">Поиск</string>
+    <string name="save">Save</string>
+    <string name="search">Search</string>
     <string name ="preferences">Preferences</string>
     <string name ="share">Share</string>
+    <string name ="distance_hint">km</string>
+    <string name ="one_km_cost_hint">USD</string>
+    <string name ="weight_hint">t</string>
+    <string name ="buy_hint">USD</string>
+    <string name ="margin_hint">%</string>
+    <string name ="expenses_hint">USD</string>
+    <string name="city_hint">City</string>
+
+    <string name="delivery">"km) - delivery: "</string>
+    <string name="in_total_wo_margin">"In total, without margin: "</string>
+    <string name="selling_price">"Selling price, total / 1t: "</string>
+    <string name="margin_total_1t">"Margin, total / 1t: "</string>
+    <string name="salary">"Salary of the profits: "</string>
+    
+    <string name="currency">Set currency:</string>
+
+    <string name="title">Calculations deleting</string>
+    <string name="message">Delete selected calculation?</string>
+    <string name="no_button">No</string>
+    <string name="yes_button">Yes</string>
+
 </resources>

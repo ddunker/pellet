@@ -61,12 +61,12 @@ public class ResultActivity extends Activity {
 
         productView.setText(getIntent().getStringExtra("product") + " (" + getIntent().getStringExtra("wrapping") + ")");
         distanceView.setText(getIntent().getStringExtra("fr") + " - " + getIntent().getStringExtra("destination") + " (" +
-                getIntent().getFloatExtra("distance", 0) + "km) - доставка: " + delivery);
-        woMarginView.setText("ИТОГО, без наценки: ");
+                getIntent().getFloatExtra("distance", 0) + getResources().getString(R.string.delivery) + delivery);
+        woMarginView.setText(getResources().getString(R.string.in_total_wo_margin));
         woMarginValueView.setText(String.valueOf(woMarg));
-        ttlMarginView.setText("Продажная цена, общая / 1т: ");
-        benefitView.setText("Прибыль, общая / 1т: ");
-        zpView.setText("ЗП от прибыли: ");
+        ttlMarginView.setText(getResources().getString(R.string.selling_price));
+        benefitView.setText(getResources().getString(R.string.margin_total_1t));
+        zpView.setText(getResources().getString(R.string.salary));
 
         marginChange.setProgress((getIntent().getIntExtra("margin", 0)));
         count();

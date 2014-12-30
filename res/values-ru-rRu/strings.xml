@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Калькулятор</string>
+    <string name="product">Продукт</string>
+    <string name="wrapping">Упаковка</string>
+    <string name="from">Погрузка</string>
+    <string name="to">Выгрузка</string>
+    <string name="distance">Расстояние</string>
+    <string name="one_km_cost">Стоим. 1км</string>
+    <string name="weight">Вес</string>
+    <string name="buy">Закупка 1т</string>
+    <string name="margin">Наценка</string>
+    <string name="expenses">Расходы</string>
+    <string name="calculate">Посчитать</string>
+    <string name="default_weight">22</string>
+    <string name="save">Сохранить</string>
+    <string name="search">Поиск</string>
+    <string name ="preferences">Настройки</string>
+    <string name ="share">Share</string>
+    <string name ="distance_hint">км</string>
+    <string name ="one_km_cost_hint">РУБ</string>
+    <string name ="weight_hint">т</string>
+    <string name ="buy_hint">РУБ</string>
+    <string name ="margin_hint">%</string>
+    <string name ="expenses_hint">РУБ</string>
+    <string name="city_hint">Город</string>
+
+    <string name="delivery">"км) - доставка: "</string>
+    <string name="in_total_wo_margin">"ИТОГО, без наценки: "</string>
+    <string name="selling_price">"Продажная цена, общая / 1т: "</string>
+    <string name="margin_total_1t">"Наценка, общая / 1т: "</string>
+    <string name="salary">"ЗП от прибыли: "</string>
+
+    <string name="currency">Укажите валюту:</string>
+
+    <string name="title">Удаление просчетов</string>
+    <string name="message">Удалить выбранный просчет?</string>
+    <string name="no_button">Нет</string>
+    <string name="yes_button">Да</string>
+
+</resources>
