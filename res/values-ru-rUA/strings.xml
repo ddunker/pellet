@@ -16,6 +16,7 @@
     <string name="save">Сохранить</string>
     <string name="search">Поиск</string>
     <string name ="preferences">Настройки</string>
+    <string name="clear">Очистить</string>
     <string name ="share">Share</string>
     <string name ="distance_hint">км</string>
     <string name ="one_km_cost_hint">ГРН</string>
@@ -28,7 +29,7 @@
     <string name="delivery">"км) - доставка: "</string>
     <string name="in_total_wo_margin">"ИТОГО, без наценки: "</string>
     <string name="selling_price">"Продажная цена, общая / 1т: "</string>
-    <string name="margin_total_1t">"Наценка, общая / 1т: "</string>
+    <string name="margin_total_1t">"Прибыль, общая / 1т: "</string>
     <string name="salary">"ЗП от прибыли: "</string>
 
     <string name="currency">Укажите валюту:</string>

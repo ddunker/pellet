@@ -9,10 +9,31 @@
     </item>
 
     <item
-            android:id="@+id/preferencesItem"
-            android:icon="@android:drawable/ic_menu_preferences"
+            android:id="@+id/moreItem"
+            android:orderInCategory="20"
             android:showAsAction="ifRoom"
-            android:title="@string/preferences">
-    </item>
+            android:title=""
+            android:icon="@android:drawable/ic_menu_more">
 
+        <menu>
+            <group>
+
+                <item
+                android:id="@+id/preferencesItem"
+                android:icon="@android:drawable/ic_menu_preferences"
+                android:showAsAction="always"
+                android:title="@string/preferences">
+                </item>
+
+                <item
+                android:id="@+id/clearItem"
+                android:icon="@drawable/ic_menu_refresh"
+                android:showAsAction="always"
+                android:title="@string/clear">
+                </item>
+
+            </group>
+        </menu>
+
+    </item>
 </menu>

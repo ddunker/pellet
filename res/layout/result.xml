@@ -43,7 +43,8 @@
                     android:layout_height="wrap_content"
                     android:text="New Text"
                     android:id="@+id/woMarginTextView"
-                    android:layout_weight="1" android:textSize="18sp"
+                    android:layout_weight="1"
+                    android:textSize="18sp"
                     android:textColor="@color/text_color"/>
             <TextView
                     android:layout_width="wrap_content"
@@ -69,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:text="New Text"
                 android:id="@+id/wMarginTextView"
-                android:layout_marginBottom="10dp" android:textSize="18sp"
+                android:layout_marginBottom="10dp"
+                android:textSize="18sp"
                 android:textColor="@color/text_color"/>
         <LinearLayout
                 android:orientation="horizontal"

@@ -28,6 +28,7 @@ public class ResultActivity extends Activity {
     float zp;
     TextView productView;
     TextView distanceView;
+    TextView ttlMarginView;
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class ResultActivity extends Activity {
         TextView woMarginView = (TextView) findViewById(R.id.woMarginTextView);
         TextView woMarginValueView = (TextView) findViewById(R.id.woMarginValueTextView);
         marginChange = (SeekBar) findViewById(R.id.seekBar);
-        TextView ttlMarginView = (TextView) findViewById(R.id.wMarginTextView);
+        ttlMarginView = (TextView) findViewById(R.id.wMarginTextView);
         TextView benefitView = (TextView) findViewById(R.id.benefitTextView);
         TextView zpView = (TextView) findViewById(R.id.zpTextView);
         zpValueView = (TextView) findViewById(R.id.zpValueTextView);
@@ -60,8 +61,9 @@ public class ResultActivity extends Activity {
                 getResources(), getWindow());
 
         productView.setText(getIntent().getStringExtra("product") + " (" + getIntent().getStringExtra("wrapping") + ")");
-        distanceView.setText(getIntent().getStringExtra("fr") + " - " + getIntent().getStringExtra("destination") + " (" +
-                getIntent().getFloatExtra("distance", 0) + getResources().getString(R.string.delivery) + delivery);
+        distanceView.setText(getIntent().getStringExtra("fr") + " - " + getIntent().getStringExtra("destination") +
+                " (" + getIntent().getFloatExtra("distance", 0) + getResources().getString(R.string.delivery) +
+                delivery + getResources().getString(R.string.buy_hint));
         woMarginView.setText(getResources().getString(R.string.in_total_wo_margin));
         woMarginValueView.setText(String.valueOf(woMarg));
         ttlMarginView.setText(getResources().getString(R.string.selling_price));
@@ -136,15 +138,18 @@ public class ResultActivity extends Activity {
     private void shareIt() {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        String shareBody = setContent();
+        String shareBody = setShareBody();
         sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 
-    private String setContent() {
+    private String setShareBody() {
         String content;
-        content = (String) productView.getText() + "\n" + (String) distanceView.getText();
+        content = (String) productView.getText() + "\n" + (String) distanceView.getText() + "\n" +
+                (String) ttlMarginView.getText() + "\n" + (String) ttlSaleView.getText() +
+                (String) getResources().getString(R.string.buy_hint) + " / " + (String) tonaSaleView.getText() +
+                (String) getResources().getString(R.string.buy_hint);
         return content;
     }
 

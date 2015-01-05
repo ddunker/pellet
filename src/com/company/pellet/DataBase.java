@@ -108,7 +108,6 @@ public class DataBase extends SQLiteOpenHelper{
                 + margin + "', '"
                 + expanses
                 + "');";
-
         db.execSQL(insertQuery);
         db.close();
     }

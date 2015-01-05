@@ -96,9 +96,27 @@ public class MainActivity extends Activity {
                 startActivityForResult(intentPreferences, 1);
                 return true;
             }
+            case R.id.clearItem: {
+                clearValues();
+                return true;
+            }
+
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void clearValues() {
+        product.setText("");
+        wrapping.setText("");
+        fr.setText("");
+        destination.setText("");
+        distance.setText("");
+        oneKmCost.setText("");
+        weight.setText("");
+        buyPrice.setText("");
+        margin.setText("");
+        expenses.setText("");
     }
 
     @Override
@@ -106,7 +124,7 @@ public class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
-                String id = data.getStringExtra("id");
+                String id = data.getStringExtra("item_id");
                 fillDataOnSearch(id);
             }
         }

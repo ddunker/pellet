@@ -21,6 +21,7 @@ public class SearchActivity extends Activity {
     private ArrayList<Products> products;
     private AlertDialog.Builder ad;
     private int item_id;
+    private int pos;
     private ListAdapter listAdapter;
     private ListView lvMain;
 
@@ -43,6 +44,10 @@ public class SearchActivity extends Activity {
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
 
+        deleteDialog();
+    }
+
+    private void deleteDialog() {
         final Context context = SearchActivity.this;
         String title = getResources().getString(R.string.title);
         String message = getResources().getString(R.string.message);
@@ -55,9 +60,9 @@ public class SearchActivity extends Activity {
         ad.setPositiveButton(button1String, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int arg1) {
                 DataBase db = new DataBase(getApplicationContext());
+                products.remove(pos);
                 db.deleteItem(item_id);
-
-
+                listAdapter.notifyDataSetChanged();
                 Toast.makeText(context, "Deleted", Toast.LENGTH_LONG).show();
             }
         });
@@ -106,14 +111,9 @@ public class SearchActivity extends Activity {
     AdapterView.OnItemLongClickListener deleteItem = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-            Toast toast = Toast.makeText(getApplicationContext(), ((TextView) view.findViewById(R.id.tvId)).getText(),
-                    Toast.LENGTH_LONG);
-            toast.show();
             item_id = Integer.valueOf((((TextView) view.findViewById(R.id.tvId)).getText()).toString());
-            DataBase db = new DataBase(getApplicationContext());
-            db.deleteItem(item_id);
-//            ad.show();
-            listAdapter.notifyDataSetChanged();
+            pos = position;
+            ad.show();
             return true;
         }
     };

@@ -16,6 +16,7 @@
     <string name="save">Save</string>
     <string name="search">Search</string>
     <string name ="preferences">Preferences</string>
+    <string name="clear">Clear</string>
     <string name ="share">Share</string>
     <string name ="distance_hint">km</string>
     <string name ="one_km_cost_hint">USD</string>
@@ -28,7 +29,7 @@
     <string name="delivery">"km) - delivery: "</string>
     <string name="in_total_wo_margin">"In total, without margin: "</string>
     <string name="selling_price">"Selling price, total / 1t: "</string>
-    <string name="margin_total_1t">"Margin, total / 1t: "</string>
+    <string name="margin_total_1t">"Profit, total / 1t: "</string>
     <string name="salary">"Salary of the profits: "</string>
     
     <string name="currency">Set currency:</string>
